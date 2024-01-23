@@ -7,7 +7,8 @@ test('should create new wearer', async () => {
     email: 'john.doe@example.com',
     password: '123456',
   }
-  const id = new UniqueEntityID()
-  const wearer = Wearer.create(input, id)
-  expect(wearer).toEqual({ ...input, id })
+  const wearer = Wearer.create(input)
+  expect(wearer.id).toBeDefined()
+  expect(wearer.name).toBe(input.name)
+  expect(wearer.email).toBe(input.email)
 })
